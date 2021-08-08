@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  cursor: pointer;
+}
+
 /*custom preloading*/
 #preloader {
   position: fixed;
@@ -20,7 +24,6 @@ html {
 }
 
 .loader {
-  border: 0 soild transparent;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -108,28 +111,34 @@ html {
   padding: 19px 0;
   transition: all 0.3s ease;
 }
+
 .navbar.sticky { /* Setelah scrolling */
   padding: 7px 0;
   background:rgb(255, 255, 255);
   box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.1);
 }
+
 .navbar .content {
   display: flex;
   align-items: center;
   justify-content: space-between  ; /* justify-content digunakan untuk mensejajarkan item-item diantara flexbox */
 }
+
 .navbar .logo a {
   color: rgb(0, 0, 0);
   font-size: 31px; /* Kalimat Platform Belajar */
   font-weight: 600;
   text-decoration: none;
 }
+
 .navbar .menu-list {
   display: inline-flex; /* membuat jadi satu baris */
 }
+
 .menu-list li {
   list-style: none;
 }
+
 .menu-list li a {
   color: rgb(0, 0, 0);
   font-size: 15px;
@@ -138,6 +147,7 @@ html {
   text-decoration: none;
   transition: all 0.3s ease;
 }
+
 .menu-list li a:hover {
   color: #007bff;
 }
@@ -156,25 +166,29 @@ html {
 }
 
 .banner {
-  height: 100vh;
+  height: 1025px;
   background: url("../../background/Belajar.png") no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   margin: 0;
 }
+
 .welcome {
   text-align: center;
   font-family: Nunito,sans-serif;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
+  opacity: 1;
+  transition: 750ms;
 }
 
 .welcome.hide {
-  display: none;
+  opacity: 0;
+  transition: 750ms;
 }
 
 .btn {
@@ -216,47 +230,64 @@ html {
   font-weight: bold;
   border: none;
 }
+
 /* ===================================== */
 
-/* custom login section*/
-.center{ /*Induk box login*/
-  position: absolute;
+/* custom login and sign up section*/
+
+.center2{ /*Induk box login*/
+  position: relative ;
   top: 50%;
   left: -100%;
-  transform: translate(-50%, -50%);
-  width: 400px;
+  transform: translate(-50%, -100%);
+  width: 500px;
   background: white;
-  opacity: 0.85;
+  opacity: 0.9;
   border-radius: 15px;
   transition: all 1s ease;
 }
 
-.center .fa-chevron-left {
+.center1{ /*Induk box login*/
+  position: relative;
+  top: 50%;
+  left: -100%;
+  transform: translate(-50%, 0%);
+  width: 500px;
+  background: white;
+  opacity: 0.9;
+  border-radius: 15px;
+  transition: all 1s ease;
+}
+
+.fa-chevron-left {
   color: black;
   font-size: 27px;
   position: absolute;
   cursor: pointer;
 }
 
-.center.show { /*Proses memunculkan login*/
+.center1.show, .center2.show { /*Proses memunculkan login*/
   left: 50%;
 }
 
-.center h1{
+.center1 h1, .center2 h1{
   text-align: center;
   font-size: 28px;
   padding: 20px 0;
   border-bottom: 1px solid silver;
 }
-.center form{
+
+.center1 form,.center2 form{
   padding: 0 40px;
   box-sizing: border-box;
 }
+
 form .txt_field{
   position: relative;
   border-bottom: 2px solid #adadad;
   margin: 30px 0;
 }
+
 .txt_field input{
   width: 100%;
   padding: 0 5px;
@@ -266,6 +297,7 @@ form .txt_field{
   background: none;
   outline: none;
 }
+
 .txt_field label{
   position: absolute;
   top: 50%;
@@ -276,6 +308,7 @@ form .txt_field{
   pointer-events: none;
   transition: .5s;
 }
+
 .txt_field span::before{
   content: '';
   position: absolute;
@@ -286,23 +319,28 @@ form .txt_field{
   background: #2691d9;
   transition: 0.5s;
 }
+
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label{
   top: -5px;
   color: #2691d9;
 }
+
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before{
   width: 100%;
 }
+
 .pass{
   margin: -5px 0 20px 5px;
   color: #a6a6a6;
   cursor: pointer;
 }
+
 .pass:hover{
   font-weight: bolder;
 }
+
 input[type="submit"]{
   width: 100%;
   height: 50px;
@@ -315,24 +353,29 @@ input[type="submit"]{
   cursor: pointer;
   outline: none;
 }
+
 input[type="submit"]:hover{
   color: #000000;
   transition: all 0.5s;
 }
+
 .signup_link{
   margin: 30px 0;
   text-align: center;
   font-size: 16px;
   color: #666666;
 }
+
 .signup_link a{
   color: #2691d9;
   text-decoration: none;
 
 }
+
 .signup_link a:hover{
   font-weight: bold;
 }
+
 /* ===================================== */
 
 /* custom article */
@@ -344,7 +387,7 @@ input[type="submit"]:hover{
 
 .article {
   margin:0 auto;
-  max-width: 950px;
+  max-width: 925px;
 }
 
 .article-first,
@@ -371,7 +414,6 @@ input[type="submit"]:hover{
 }
 
 .card {
-  border: 1px solid rgb(255, 255, 255);
   padding: 15px;
   margin: 15px;
   text-align: center;
@@ -395,6 +437,7 @@ input[type="submit"]:hover{
   font-size: 13px;
   text-align: justify;
 }
+
 /* ===================================== */
 
 /*custom footer*/
@@ -420,17 +463,17 @@ input[type="submit"]:hover{
   color: white;
 }
 
-.footer .footer-content .about-footer p {
+.footer .footer-content .first-section p {
   padding-top: 13px;
 }
 /* bagian tengah */
 
-.footer .footer-content .links ul {
+.footer .footer-content .second-section ul {
   font-size: 13px;
   padding-top: 2px;
 }
 
-.footer .footer-content .links ul a {
+.footer .footer-content .second-section ul a {
   color: white;
   display: block;
   margin-bottom: 7px;
@@ -440,20 +483,20 @@ input[type="submit"]:hover{
   text-decoration: none;
 }
 
-.footer .footer-content .links ul a:hover { /*saat kursor berada di target */
+.footer .footer-content .second-section ul a:hover { /*saat kursor berada di target */
   color: rgb(221, 216, 216);
   margin-left: 17px;
   transition: all .5s;
 }
 
 /* bagian kanan */
-.footer .footer-content .contact-form .contact span {
+.footer .footer-content .third-section .contact span {
   display: block;
   font-size: 1.1em;
   margin-bottom: 8px;
 }
 
-.footer .footer-content .contact-form .socials a {
+.footer .footer-content .third-section .socials a {
   border: 1px solid rgb(255, 255, 255);
   width: 45px;
   height: 40px;
@@ -487,13 +530,13 @@ input[type="submit"]:hover{
   color : #0072b1;
 }
 
-.footer .footer-content .contact-form .socials a:hover { /*saat kursor berada di target */
+.footer .footer-content .third-section .socials a:hover { /*saat kursor berada di target */
   color: white;
   border: 1px solid white;
   transition: all .3s;
 }
 
-.footer .footer-content .contact-form .contact-input {
+.footer .footer-content .third-section .contact-input {
   background: #272727;
   color: #bebdbd;
   margin-bottom: 10px;
@@ -502,11 +545,11 @@ input[type="submit"]:hover{
   border: none;
 }
 
-.footer .footer-content .contact-form .contact-input:focus {
+.footer .footer-content .third-section .contact-input:focus {
   background: #1a1a1a;
 }
 
-.footer .footer-content .contact-form .contact-btn {
+.footer .footer-content .third-section .contact-btn {
   float: right;
   font-size: 1.1em;
   font-family: 'Lora', serif;
@@ -520,6 +563,7 @@ input[type="submit"]:hover{
   position: absolute;
   font-size: 11px;
 }
+
 /* ===================================== */
 
 /*custom size*/
@@ -533,11 +577,11 @@ input[type="submit"]:hover{
     flex-direction: column;
   }
 
-  .footer .footer-content .contact-form {
+  .footer .footer-content .third-section {
     padding-bottom: 90px;
   }
 
-  .footer .footer-content .contact-form .contact-btn {
+  .footer .footer-content .third-section .contact-btn {
     width: 100%;
   }
   
@@ -616,7 +660,6 @@ input[type="submit"]:hover{
 
 @media (max-width: 668px) {
   .welcome {
-    position: center;
     top: 37%;
     left: 50%;
     max-width: 200px;
@@ -639,11 +682,13 @@ input[type="submit"]:hover{
     padding : 10px ;
   }
 
-  .center {
+  .center1,.center2 {
+    position:absolute;
+    transform: translate(-50%, -35%);
     width: 300px;
   }
 
-  .center h1 {
+  .center1 h1,.center2 h1 {
     font-size: 16px;
   }
 
@@ -662,7 +707,7 @@ input[type="submit"]:hover{
 
 
 @media (max-width: 402px) {
-  .center {
+  .center1,.center2 {
     width: 275px;
   }
 }
@@ -679,7 +724,6 @@ input[type="submit"]:hover{
 
 @media (max-width: 320px) {
   .welcome {
-    position: center;
     top: 27%;
     left: 50%;
     max-width: 200px;
